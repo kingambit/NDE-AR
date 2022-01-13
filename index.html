@@ -47,7 +47,7 @@
 
           <!-- a-scene arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'-->
   <!-- type='pattern' url='https://assets.codepen.io/7105157/pattern-qr-code_nde.patt' -->
-          <a-marker-camera size="0.04" position="0 0 0" id="marker" preset='kanji' raycaster="objects: .clickable"
+          <a-marker size="0.04" position="0 0 0" id="marker" preset='kanji' raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
         id="markerA">
@@ -59,7 +59,8 @@
                   </a-image>
                 <a-gltf-model src="Bridge.gltf" scale="0.02 0.02 0.02" position="-0.35 -1.88 1.6" rotation="0 -90 0"></a-gltf-model>
               </a-box>
-          </a-marker-camera>
+          </a-marker>
+          <a-entity camera></a-entity>
 
           <!-- a-plane rotation="-90 0 0" wireframe=true wireframe-linewidth=2 color="blue" width="30" height="30"></a-plane -->
 
