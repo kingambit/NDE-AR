@@ -29,21 +29,7 @@
               }
           });
 
-          // Component to change to a sequential color on click.
-      AFRAME.registerComponent('cursor-listener', {
-        init: function () {
-          var lastIndex = -1;
-          var COLORS = ['red', 'green', 'blue'];
-          this.el.addEventListener('click', function (evt) {
-
-            console.log('I was clicked at: ', evt.detail.intersection.point);
-
-           lastIndex = (lastIndex + 1) % COLORS.length;
-            this.setAttribute('material', 'color', COLORS[lastIndex]);
-
-         });
-       }
-      });
+        
     </script>
     <style>
     .buttons {
@@ -87,7 +73,7 @@
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
         id="markerA">
-             <a-box look-controls position='-1 0 -3' depth="6" height="1" width="2" material='opacity: 0.2;' color='gray' scale="1 1 1"  id="box" class="clickable"
+             <a-box position='-1 0 -3' depth="6" height="1" width="2" material='opacity: 0.2;' color='gray' scale="1 1 1"  id="box" class="clickable"
           gesture-handler>
                   <a-image ER src="#er" id="ER" position="0 0.52 0" rotation="-90 0 90" width="6" height="2" visible="true">
                 </a-image>
