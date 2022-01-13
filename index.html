@@ -38,14 +38,14 @@
 
         <a-scene embedded arjs="sourceType: webcam; width:device-width; high:device-high; user-scalable:no; minimum-scale:1.0; maximum-scale:1.0;"
                                "debugUIEnabled: false; trackingMethod: best; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
-                               vr-mode-ui="enabled:false" renderer="logarithmicDepthBuffer: true;" gesture-detector id="scene">
+                               vr-mode-ui="enabled:true" renderer="logarithmicDepthBuffer: true;" gesture-detector id="scene">
           <a-assets>
 
           </a-assets>
 
           <!-- a-scene arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'-->
   <!-- type='pattern' url='https://assets.codepen.io/7105157/pattern-qr-code_nde.patt' type='pattern' url='pattern-marker-git.patt'-->
-          <a-marker-camera size="0.04" position="0 0 0" type='pattern' url='pattern-marker-git.patt' raycaster="objects: .clickable"
+          <a-marker-camera size="0.04" position="0 0 5" type='pattern' url='pattern-marker-git.patt' raycaster="objects: .clickable"
                             emitevents="true"
                             cursor="fuse: false; rayOrigin: mouse;"
                             id="markerA">
