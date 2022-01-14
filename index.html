@@ -4,84 +4,61 @@
     <meta charset="utf-8">
     <title>NDE DEmo</title>
     <meta name="description" content="NDE A-Frame Demo">
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="gesture-detector.js"></script>
     <script src="gesture-handler.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
 
     <script>
 
-          AFRAME.registerComponent('ER', {
+          AFRAME.registerComponent('er', {
               init: function() {
 
                   this.el.addEventListener("click", (evt) => {
 
                      console.log('I was clicked at: ', evt.detail.intersection.point);
 
-                    let other = document.querySelector("#USW")
+                    let other = document.querySelector("#usw")
                     other.setAttribute("visible", !other.getAttribute("visible"))
 
                     this.setAttribute("visible", !this.getAttribute("visible"))
                   });
               }
           });
-
-        
     </script>
-    <style>
-    .buttons {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 5em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-    }
 
-    .say-hi-button {
-      padding: 0.25em;
-      border-radius: 4px;
-      border: none;
-      background: white;
-      color: black;
-      width: 4em;
-      height: 2em;
-    }
-  </style>
   </head>
 
     <!-- we import arjs version without NFT but with marker + location based support -->
 
     <body style="margin : 0px; overflow: hidden;">
 
-        <a-scene embedded arjs="sourceType: webcam; width:device-width; high:device-high; user-scalable:no; minimum-scale:1.0; maximum-scale:1.0; debugUIEnabled: false; trackingMethod: best; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"  vr-mode-ui="enabled:false" renderer="logarithmicDepthBuffer: true;" gesture-detector id="scene">
+        <a-scene embedded arjs="sourceType: webcam; width:device-width; high:device-high; user-scalable:no; minimum-scale:1.0; maximum-scale:1.0;"
+                               "debugUIEnabled: false; trackingMethod: best; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+                               vr-mode-ui="enabled:false" renderer="logarithmicDepthBuffer: true;" gesture-detector id="scene">
           <a-assets>
-            <img  src="https://i.ibb.co/fqW2yTh/ER.jpg" id="er"></img>
-            <img  src="https://i.ibb.co/BZrBfJW/USW.jpg" id="usw"></img>
-            <a-marker-camera type='pattern' url='https://assets.codepen.io/7105157/pattern-qr-code_nde.patt'></a-marker-camera>
+
           </a-assets>
 
           <!-- a-scene arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'-->
-  <!-- type='pattern' url='https://assets.codepen.io/7105157/pattern-qr-code_nde.patt' -->
-          <a-marker-camera size="0.04" position="0 0 0" id="marker" preset='kanji' raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA">
-             <a-box look-controls position='-1 0 -3' depth="6" height="1" width="2" material='opacity: 0.2;' color='gray' scale="1 1 1"  id="box" class="clickable"
-          gesture-handler>
-                  <a-image ER src="#er" id="ER" position="0 0.52 0" rotation="-90 0 90" width="6" height="2" visible="true">
-                </a-image>
-                  <a-image  src="#usw" id="USW" position="0 0 0"  rotation="-90 0 90" width="6" height="2" visible="false" >
+  <!-- type='pattern' url='https://assets.codepen.io/7105157/pattern-qr-code_nde.patt' type='pattern' url='pattern-marker-git.patt'-->
+          <a-marker-camera size="0.035" position="0 0 5" type='pattern' url='pattern-marker-git.patt' raycaster="objects: .clickable"
+                            emitevents="true"
+                            cursor="fuse: false; rayOrigin: mouse;"
+                            id="markerA">
+              <a-box position='-1 0 -3' rotation="0 0 0" depth="6" height="1" width="2" material='opacity: 0.2;' color='gray' scale="1 1 1"  id="box" class="clickable"
+                        id="browser-model" gesture-handler>
+                  <a-image er src="ER.jpg" id="er" position="0 0.52 0" rotation="-90 0 90" width="6" height="2" visible="true" opacity="0.8">
                   </a-image>
-                <a-gltf-model src="Bridge.gltf" scale="0.02 0.02 0.02" position="-0.35 -1.88 1.6" rotation="0 -90 0"></a-gltf-model>
+                  <a-image  src="USW.jpg" id="usw" position="0 0 0"  rotation="-90 0 90" width="6" height="2" visible="false" opacity="0.8">
+                  </a-image>
+                  <a-gltf-model src="Bridge.gltf" scale="0.02 0.02 0.02" position="-0.35 -1.88 1.6" rotation="0 -90 0" opacity="0.4" material="transparent:true"></a-gltf-model>
               </a-box>
           </a-marker-camera>
+
 
           <!-- a-plane rotation="-90 0 0" wireframe=true wireframe-linewidth=2 color="blue" width="30" height="30"></a-plane -->
 
