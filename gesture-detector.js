@@ -96,6 +96,8 @@ AFRAME.registerComponent("gesture-detector", {
       const eventName =
         this.getEventPrefix(currentState.touchCount) + "fingermove";
 
+console.log("event ", eventName);
+
       this.el.emit(eventName, eventDetail);
     }
   },
